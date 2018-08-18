@@ -11,4 +11,4 @@ const customers = [
     { "dui": "010239", "name": "Juan perez", "age": 30 },
 ];
 
-export const fetchCustomers = createAction(FETCH_CUSTOMER)
+export const fetchCustomers = createAction(FETCH_CUSTOMER, ()=> customers)

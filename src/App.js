@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import HomeContainer from './components/HomeContainer';
+import CustomersContainers from './components/CustomersContainers';
 
 class App extends Component {
+  renderName = () => <h1>Home</h1>;
+  renderCustmerListContainer = () => <h1>Lista Customer</h1>;
+  renderCustmerContainerName = () => <h1>Contenedor</h1>;
+  CustmerNewContainer = () => <h1>Nuevo</h1>;
   render() {
     return (
       <Router>
-      <div className="App">
-      
-        <Link to="/customers">Compradores</Link>
-        <Link to="/customer/3000">un comprador X</Link>
-      </div>
+        <div>
+          
+            <Route exact path="/" component={HomeContainer} />
+            <Route exact path="/customers" component={CustomersContainers} />
+            <Switch>
+            <Route path="/customers/new" component={this.CustmerNewContainer} />
+            <Route path="/customers/:dui" component={this.renderCustmerContainerName} />
+          </Switch>
+
+        </div>
       </Router>
     );
   }

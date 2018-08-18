@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CustomerListItem from './CustomerListItem';
 
-const CustomerList = ({ customers }) => {
+const CustomerList = ({ customers,urlPath }) => {
     return (
         <div>
             <div className="customers-list">
@@ -10,10 +10,11 @@ const CustomerList = ({ customers }) => {
                 {
                     customers.map(c =>
                         <CustomerListItem
-                            key={c.dni}
+                            key={c.dui}
                             name={c.name}
-                            editAction={c.editAction}
-                            delAction={c.delAction}
+                            dui={c.dui}
+                            editAction={"editar"}
+                            delAction={"eliminar"}
                             urlPath={urlPath}
                         ></CustomerListItem>
                     )

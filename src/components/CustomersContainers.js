@@ -45,13 +45,6 @@ CustomersContainers.propTypes = {
 };
 
 CustomersContainers.defaultProps={
-     customers : [
-        { "dui": "010234", "name": "Juan perez", "age": 30 },
-        { "dui": "010235", "name": "Juan perez", "age": 30 },
-        { "dui": "010236", "name": "Juan perez", "age": 30 },
-        { "dui": "010237", "name": "Juan perez", "age": 30 },
-        { "dui": "010238", "name": "Juan perez", "age": 30 },
-        { "dui": "010239", "name": "Juan perez", "age": 30 },
-    ]
+     customers : []
 }
 export default withRouter(connect(null, {fetchCustomers})(CustomersContainers));

@@ -7,14 +7,7 @@ import CustomerActions from './CustomerActions';
 import { withRouter } from 'react-router-dom';
 import { fetchCustomers } from '../actions/index';
 
-const customers = [
-    { "dui": "010234", "name": "Juan perez", "age": 30 },
-    { "dui": "010235", "name": "Juan perez", "age": 30 },
-    { "dui": "010236", "name": "Juan perez", "age": 30 },
-    { "dui": "010237", "name": "Juan perez", "age": 30 },
-    { "dui": "010238", "name": "Juan perez", "age": 30 },
-    { "dui": "010239", "name": "Juan perez", "age": 30 },
-];
+
 
 
 class CustomersContainers extends Component {
@@ -40,7 +33,7 @@ class CustomersContainers extends Component {
         return (
             <div>
                 <AppFrame header={'listado de Clientes'}
-                    body={this.renderBody(customers)}></AppFrame>
+                    body={this.renderBody(this.props.customers)}></AppFrame>
             </div>
         );
     }
@@ -48,8 +41,17 @@ class CustomersContainers extends Component {
 
 CustomersContainers.propTypes = {
     fetchCustomers: PropTypes.func.isRequired,
+    customers: PropTypes.array.isRequired,
 };
 
-const mapDispatchToProps = {fetchCustomers}
-
-export default withRouter(connect(null, mapDispatchToProps)(CustomersContainers));
+CustomersContainers.defaultProps={
+     customers : [
+        { "dui": "010234", "name": "Juan perez", "age": 30 },
+        { "dui": "010235", "name": "Juan perez", "age": 30 },
+        { "dui": "010236", "name": "Juan perez", "age": 30 },
+        { "dui": "010237", "name": "Juan perez", "age": 30 },
+        { "dui": "010238", "name": "Juan perez", "age": 30 },
+        { "dui": "010239", "name": "Juan perez", "age": 30 },
+    ]
+}
+export default withRouter(connect(null, {fetchCustomers})(CustomersContainers));

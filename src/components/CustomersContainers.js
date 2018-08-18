@@ -7,6 +7,7 @@ import CustomerActions from './CustomerActions';
 import { withRouter } from 'react-router-dom';
 import { fetchCustomers } from '../actions/index';
 import { customers } from '../reducers/customer';
+import { getCustomers } from '../selector/customers';
 
 
 
@@ -49,6 +50,6 @@ CustomersContainers.defaultProps = {
     customers: []
 }
 const mapStateToProps = state=> ({
-    customers: state.customers
+    customers: getCustomers(state)
 })
 export default withRouter(connect(mapStateToProps, { fetchCustomers })(CustomersContainers));

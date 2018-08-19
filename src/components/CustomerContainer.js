@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import AppFrame from './AppFrame';
+import { getCustomerByDui } from '../selector/customers';
+import { Route } from 'react-router-dom';
 
 class CustomerContainer extends Component {
+    renderBody=()=>(
+        <Route path="/customers/:dui/edit" children={
+            ({match})=>(match ? <p>Edicion </p>: <p>No Edit</p>)
+        }/>
+    )
     render() {
+        //<p>Datos de del cliente { this.props.customer.name}</p>
         return (
             <div>
                 <AppFrame
                 header={`Cliente ${this.props.dui}`}
-                body={<p>Datos de del cliente { this.props.customer.name}</p>}
+                body={this.renderBody()}
                 ></AppFrame>
             </div>
         );
@@ -22,6 +30,6 @@ customer: PropTypes.object.isRequired,
 };
 
 const mapStateToProps= (state, props) =>({
-    customer: state.customers.find(c=>c.dui === props.dui)
+    customer: getCustomerByDui(state, props)
 })
 export default connect(mapStateToProps,  null)(CustomerContainer);

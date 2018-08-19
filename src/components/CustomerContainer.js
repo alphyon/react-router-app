@@ -8,7 +8,7 @@ class CustomerContainer extends Component {
         return (
             <div>
                 <AppFrame
-                header={`Cliente`}
+                header={`Cliente ${this.props.dui}`}
                 body={<p>Datos de del cliente</p>}
                 ></AppFrame>
             </div>
@@ -17,7 +17,7 @@ class CustomerContainer extends Component {
 }
 
 CustomerContainer.propTypes = {
-
+dui: PropTypes.string.isRequired,
 };
 
 export default connect(null,null)(CustomerContainer);

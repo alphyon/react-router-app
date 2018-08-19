@@ -19,7 +19,8 @@ class App extends Component {
             <Route exact path="/customers" component={CustomersContainers} />
             <Switch>
             <Route path="/customers/new" component={this.CustmerNewContainer} />
-            <Route path="/customers/:dui" component={CustomerContainer} />
+            <Route path="/customers/:dui" 
+            render={props=><CustomerContainer {...props} dui={props.match.params.dui} />  } />
           </Switch>
 
         </div>

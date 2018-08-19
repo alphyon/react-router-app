@@ -1,0 +1,27 @@
+{
+  "customers":[
+    { "dui": "010234", "name": "Juan perez", "age": 30 },
+    { "dui": "010235", "name": "Juan perez", "age": 30 },
+    { "dui": "010236", "name": "Juan perez", "age": 30 },
+    { "dui": "010237", "name": "Juan perez", "age": 30 },
+    { "dui": "010238", "name": "Juan perez", "age": 30 },
+    { "dui": "010239", "name": "Juan perez", "age": 30 }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
